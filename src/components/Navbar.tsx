@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Heart, Menu, X, Search } from "lucide-react";
+import { Menu, X, Search } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -10,8 +11,7 @@ const Navbar = () => {
     <nav className="sticky top-0 z-50 border-b border-border bg-card/80 backdrop-blur-md">
       <div className="container flex h-16 items-center justify-between">
         <Link to="/" className="flex items-center gap-2">
-          <Heart className="h-7 w-7 text-primary fill-primary" />
-          <span className="font-display text-xl font-bold text-foreground">OrigoAid</span>
+          <img src={logo} alt="OrigoAid" className="h-10 w-auto" />
         </Link>
 
         <div className="hidden items-center gap-6 md:flex">
