@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { Heart, Facebook, Twitter, Mail } from "lucide-react";
+import { Heart } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const Footer = () => {
   return (
@@ -8,8 +9,7 @@ const Footer = () => {
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           <div>
             <Link to="/" className="flex items-center gap-2">
-              <Heart className="h-6 w-6 text-primary fill-primary" />
-              <span className="font-display text-lg font-bold text-foreground">OrigoAid</span>
+              <img src={logo} alt="OrigoAid" className="h-9 w-auto" />
             </Link>
             <p className="mt-3 text-sm text-muted-foreground">
               Bangladesh's trusted crowdfunding platform. Empowering communities, one campaign at a time.
@@ -34,20 +34,16 @@ const Footer = () => {
           <div>
             <h4 className="font-display text-sm font-semibold text-foreground mb-3">Connect</h4>
             <div className="flex gap-3">
-              <a href="#" className="flex h-9 w-9 items-center justify-center rounded-lg bg-muted text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors">
-                <Facebook className="h-4 w-4" />
-              </a>
-              <a href="#" className="flex h-9 w-9 items-center justify-center rounded-lg bg-muted text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors">
-                <Twitter className="h-4 w-4" />
-              </a>
-              <a href="#" className="flex h-9 w-9 items-center justify-center rounded-lg bg-muted text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors">
-                <Mail className="h-4 w-4" />
-              </a>
+              {["Facebook", "Twitter", "Email"].map((label) => (
+                <a key={label} href="#" className="flex h-9 w-9 items-center justify-center rounded-lg bg-muted text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors text-xs font-bold">
+                  {label[0]}
+                </a>
+              ))}
             </div>
           </div>
         </div>
         <div className="mt-10 border-t border-border pt-6 text-center text-xs text-muted-foreground">
-          © 2026 OrigoAid. All rights reserved. Made with ❤️ in Bangladesh.
+          © 2026 OrigoAid. All rights reserved. Made with <Heart className="inline h-3 w-3 text-destructive fill-destructive" /> in Bangladesh.
         </div>
       </div>
     </footer>
